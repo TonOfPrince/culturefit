@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CultureFit — A cultural brief in three directions</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+  <script src="/ui/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="topbar"><a class="wordmark" href="/">CultureFit<span aria-hidden="true"> ↗</span></a><span class="edition">Cultural activation planner</span></header>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">From a cultural reference to a creative starting point</p>
+      <h1 id="hero-title">One reference.<br>Three new directions.</h1>
+      <p class="intro">Find a place, a brand partner and an artist for your next cultural activation. CultureFit connects the dots through Qloo’s aggregate affinity graph.</p>
+    </section>
+    <section class="brief panel" aria-labelledby="brief-title">
+      <div class="section-top"><div><p class="eyebrow">01 / The brief</p><h2 id="brief-title">Try the guided example</h2></div><span class="badge" id="provider-mode">Checking connection</span></div>
+      <p>This bounded example resolves <strong>Taylor Swift, the artist</strong>, then asks Qloo for three cultural directions with a <strong>Chicago</strong> context. Only places are geographically filtered; brands and artists are affinity suggestions.</p>
+      <form id="plan-form">
+        <div class="brief-fields"><div><span class="field-label">Cultural reference</span><p class="fixed-value">Taylor Swift <span class="muted">/ Artist</span></p></div><div><span class="field-label">Place city</span><p class="fixed-value">Chicago</p></div></div>
+        <div class="actions"><button id="plan-run" type="submit" disabled>Build this brief <span aria-hidden="true">↗</span></button><button id="provider-refresh" type="button" class="secondary">Check connection</button></div>
+      </form>
+      <p class="status" id="plan-status" role="status" aria-live="polite">Checking the configured provider gateway…</p>
+      <p class="fine">One attempt per gateway session. No automatic retries. Your API key stays on the server. Offline responses are clearly labelled.</p>
+    </section>
+    <section aria-labelledby="results-title" class="results-section">
+      <p class="eyebrow">02 / The directions</p><h2 id="results-title">A shortlist to think with.</h2>
+      <p class="muted">Affinity offers a starting point. You bring the judgment.</p>
+      <div id="plan-results" class="cards" aria-live="polite"></div>
+      <p id="result-boundary" class="fine"></p>
+    </section>
+    <details class="catalogue panel">
+      <summary>Optional: explore your own source catalogue</summary>
+      <p>These local tools match tags in records you supply. They do not contact Qloo or verify source URLs.</p>
+      <div class="catalog-columns"><section aria-labelledby="load-heading">
+        <h2 id="load-heading">Import your sources</h2>
+        <p class="fine">UTF-8 CSV: lane,name,city,tags,source_url,source_label. Lanes: place, brand, artist. Up to 2 MB.</p>
+        <form id="upload-form"><label for="catalog-file">Catalogue CSV</label><input id="catalog-file" name="catalog-file" type="file" accept=".csv,text/csv" required>
+          <label class="checkbox"><input id="replace-catalog" type="checkbox"> Replace the existing catalogue with this file</label>
+          <button id="upload-run" type="submit" class="secondary">Import selected CSV</button></form>
+        <p id="catalog-status" role="status" aria-live="polite" class="status">Checking catalogue…</p>
+      </section><section aria-labelledby="search-heading">
+        <h2 id="search-heading">Match your interests</h2>
+        <form id="search-form"><label for="city">City for places</label><input id="city" name="city" maxlength="300" placeholder="e.g. Chicago" required>
+          <label for="interests">Source tags, separated by commas</label><input id="interests" name="interests" maxlength="3000" placeholder="e.g. jazz, coffee" required>
+          <button id="search-run" type="submit" class="secondary" disabled>Search my sources</button></form>
+        <p id="search-status" class="status" role="status" aria-live="polite">Import your own sources to begin.</p>
+      </section></div>
+      <div id="catalog-results" class="cards" aria-live="polite"></div>
+    </details>
+    <footer><span>CultureFit</span><p>Aggregate cultural affinities, with clear boundaries. No identity, sensitive-trait or individual-behavior inference.</p></footer>
+    <noscript><p>Enable JavaScript to use the planning and catalogue controls. The API remains available to a local client.</p></noscript>
+  </main>
+</body>
+</html>
